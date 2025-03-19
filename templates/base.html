@@ -3,19 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Portfolio{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}Portfolio Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="container">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="{{ url_for('home') }}">Dev Portfolio</a>
+            </div>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navbar-menu" id="navbar-menu">
+                <ul class="navbar-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
         {% block content %}{% endblock %}
-    </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Dev Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/laukik86" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            navbarToggle.addEventListener('click', function() {
+                navbarToggle.classList.toggle('active');
+                navbarMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

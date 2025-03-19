@@ -1,20 +1,68 @@
 {% extends "base.html" %}
-{% block title %}Contact - Get in Touch{% endblock %}
+
+{% block title %}Contact | Portfolio Website{% endblock %}
+
 {% block content %}
-    <h1>Contact Me</h1>
-    <form action="{{ url_for('contact') }}" method="post">
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
+<section class="contact-header">
+    <div class="container">
+        <h1 class="section-title">Get In Touch</h1>
+        <p class="section-subtitle">Have a question or want to work together? Drop me a message!</p>
+    </div>
+</section>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" required>
-
-        <label for="message">Message:</label>
-        <textarea name="message" required maxlength="500"></textarea>
-
-        <button type="submit">Submit</button>
-    </form>
+<section class="contact-form">
+    <div class="container">
+        <div class="form-container">
+            <form action="{{ url_for('submit_contact') }}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <small class="form-text">Please enter a valid email address</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject <span class="required">*</span></label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" name="message" required maxlength="500" rows="5"></textarea>
+                    <div class="character-count">
+                        <span id="current">0</span>/<span id="maximum">500</span> characters
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="contact-info">
+            <div class="info-item">
+                <h3>Email</h3>
+                <p>laukik@gmail.com</p>
+            </div>
+            <div class="info-item">
+                <h3>Location</h3>
+                <p>Mumbai</p>
+            </div>
+            <div class="info-item">
+                <h3>Social</h3>
+                <div class="social-links">
+                    <a href="https://github.com/" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+                    <a href="https://twitter.com/" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Portfolio Website{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">Laukik Developer</span></h1>
+            <p class="tagline">Full Stack Developer & UX Enthusiast</p>
+            <div class="hero-btns">
+                <a href="{{ url_for('portfolio') }}" class="btn btn-primary">View My Work</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Jane Developer">
+            </div>
+            <div class="about-text">
+                <p>Welcome to my portfolio! I'm Laukik, a passionate full-stack developer with expertise in building scalable web applications using modern technologies.</p>
+                <p>With over 2 years of experience in software development, I specialize in creating robust back-end systems and intuitive user interfaces. My approach combines technical excellence with user-centered design principles.</p>
+                <div class="skills">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

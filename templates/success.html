@@ -1,9 +1,37 @@
 {% extends "base.html" %}
-{% block title %}Success{% endblock %}
+
+{% block title %}Message Sent | Portfolio Website{% endblock %}
+
 {% block content %}
-    <h1>Form Submitted Successfully!</h1>
-    <p><strong>Name:</strong> {{ name }}</p>
-    <p><strong>Email:</strong> {{ email }}</p>
-    <p><strong>Subject:</strong> {{ subject }}</p>
-    <p><strong>Message:</strong> {{ message }}</p>
+<section class="success-page">
+    <div class="container">
+        <div class="success-message">
+            
+            <h1>Thank You!</h1>
+            <p>Your message has been successfully sent. I'll get back to you as soon as possible.</p>
+            
+            <div class="message-details">
+                <h2>Your Message Details:</h2>
+                <div class="detail-item">
+                    <strong>Name:</strong> {{ name }}
+                </div>
+                <div class="detail-item">
+                    <strong>Email:</strong> {{ email }}
+                </div>
+                <div class="detail-item">
+                    <strong>Subject:</strong> {{ subject }}
+                </div>
+                <div class="detail-item">
+                    <strong>Message:</strong>
+                    <p class="message-content">{{ message }}</p>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+                <a href="{{ url_for('portfolio') }}" class="btn btn-primary">View Portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
